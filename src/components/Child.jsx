@@ -27,10 +27,16 @@ const Child = ({id, name, checkedIn, checkins}) => {
     }
   };
 
+  const setStatus = () => {
+    if (checked) return `checked in at ${checkedInTime}`;
+    if (checkins.length > 0) return `last checked in at ${checkedInTime}`;
+    return "not checked in";
+  }
+
   return (
       <Container $checked={checked}>
         <div>{name}</div>
-        <div>{checkins.length > 0 ? `${checked ? "" : "last"} checked in at ${checkedInTime}`: "not checked in"}</div>
+        <div>{setStatus()}</div>
         <ButtonsContainer>
           {checked ? 
           <Button type="button" onClick={() => {checkOutChild(); setError(null); }}>CHECK OUT</Button>
