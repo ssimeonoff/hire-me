@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/nursery-exercise/static/css/main.f855e6bc.css",
-    "main.js": "/nursery-exercise/static/js/main.84be44a8.js",
+    "main.js": "/nursery-exercise/static/js/main.8598cc68.js",
     "static/js/592.ea0211bc.chunk.js": "/nursery-exercise/static/js/592.ea0211bc.chunk.js",
     "index.html": "/nursery-exercise/index.html",
     "main.f855e6bc.css.map": "/nursery-exercise/static/css/main.f855e6bc.css.map",
-    "main.84be44a8.js.map": "/nursery-exercise/static/js/main.84be44a8.js.map",
+    "main.8598cc68.js.map": "/nursery-exercise/static/js/main.8598cc68.js.map",
     "592.ea0211bc.chunk.js.map": "/nursery-exercise/static/js/592.ea0211bc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.84be44a8.js"
+    "static/js/main.8598cc68.js"
   ]
 }
