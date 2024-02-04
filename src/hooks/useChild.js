@@ -13,6 +13,7 @@ const useChild = (id, checkedIn, checkins) => {
       const response = await postCheck(id, "checkins");
       setChecked(true);
       setCheckedInTime(response.checkinTime);
+      console.log("checkin", response);
     } catch (error) {
       setError(error.message);
     }
@@ -23,7 +24,7 @@ const useChild = (id, checkedIn, checkins) => {
     try {
       const response = await postCheck(id, "checkout");
       setChecked(false);
-      setCheckedOutTime(response.checkoutTime);
+      setCheckedOutTime(response[0].checkoutTime);
     } catch (error) {
       setError(error.message);
     }

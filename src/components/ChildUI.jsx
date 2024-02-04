@@ -25,10 +25,10 @@ const ChildUI = ({name, checked, checkedInTime, checkedOutTime,  onCheckIn, onCh
 
   const setStatus = () => {
     if (checked) return `checked in at ${convertDateString(checkedInTime)}`;
-    if (checkedOutTime) return `checked out at ${convertDateString(checkedInTime)}`;
+    if (checkedOutTime) return `checked out at ${convertDateString(checkedOutTime)}`;
     return "not checked in";
   }
-
+  
   return (
       <Container $checked={checked}>
         <div>{name}</div>

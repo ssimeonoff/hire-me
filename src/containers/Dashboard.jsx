@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import DashboardUI from '../components/DashboardUI';
-import useDashboard from '../state/use-dashboard';
+import useDashboard from '../hooks/useDashboard';
 
 const Dashboard = () => {
   const groupId = "86413ecf-01a1-44da-ba73-1aeda212a196";

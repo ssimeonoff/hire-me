@@ -1,5 +1,5 @@
 import ChildUI from "../components/ChildUI"
-import useChild from "../state/use-child";
+import useChild from "../hooks/useChild";
 
 const Child = ({id, name, checkedIn, checkins}) => {
   const {
