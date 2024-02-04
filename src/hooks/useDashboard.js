@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getChildren } from '../api/apis';
+import { getChildren } from "../api/apis";
 
 const useDashboard = () => {
   const [data, setData] = useState(null);
@@ -18,7 +18,7 @@ const useDashboard = () => {
     data,
     error,
     fetchChildren,
-  }
-}
+  };
+};
 
 export default useDashboard;

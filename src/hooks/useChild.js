@@ -3,8 +3,12 @@ import { postCheckIn, postCheckOut } from "../api/apis";
 
 const useChild = (id, checkedIn, checkins, pickupTime) => {
   const [checked, setChecked] = useState(checkedIn);
-  const [checkedInTime, setCheckedInTime] = useState(checkins.length > 0 ? checkins[0].checkinTime : "");
-  const [checkedOutTime, setCheckedOutTime] = useState(checkins.length > 0 ? checkins[0].checkoutTime : "");
+  const [checkedInTime, setCheckedInTime] = useState(
+    checkins.length > 0 ? checkins[0].checkinTime : ""
+  );
+  const [checkedOutTime, setCheckedOutTime] = useState(
+    checkins.length > 0 ? checkins[0].checkoutTime : ""
+  );
   const [pickup, setPickup] = useState(pickupTime);
   const [error, setError] = useState(null);
 
@@ -39,7 +43,7 @@ const useChild = (id, checkedIn, checkins, pickupTime) => {
     error,
     checkInChild,
     checkOutChild,
-  }
-}
+  };
+};
 
 export default useChild;
