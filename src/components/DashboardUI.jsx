@@ -28,7 +28,9 @@ const DashboardUI = ({data, error}) => {
               id={child.childId} 
               name={child.name.fullName} 
               checkedIn={child.checkedIn} 
-              checkins={child.checkins}/>
+              checkins={child.checkins}
+              pickupTime={child.pickupTime}
+              />
             );
         })}
         </Container>}

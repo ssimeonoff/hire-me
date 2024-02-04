@@ -12,13 +12,23 @@ const getChildren = async (groupId, institutionId) => {
   return response.data;
 };
 
-const postCheck = async (childId, type) => {
-  const response = await axios.post(`${process.env.REACT_APP_URL}/v2/children/${childId}/${type}`, {},{
+const postCheckIn = async (childId, pickupTime) => {
+  const response = await axios.post(`${process.env.REACT_APP_URL}/v2/children/${childId}/checkins`, {},{
     params: {
-      accessToken: process.env.REACT_APP_ACCESS_TOKEN
+      accessToken: process.env.REACT_APP_ACCESS_TOKEN,
+      pickupTime
       }
     });
   return response.data;
 };
 
-export { getChildren, postCheck };
+const postCheckOut = async (childId, pickupTime) => {
+  const response = await axios.post(`${process.env.REACT_APP_URL}/v2/children/${childId}/checkout`, {},{
+    params: {
+      accessToken: process.env.REACT_APP_ACCESS_TOKEN,
+      }
+    });
+  return response.data;
+};
+
+export { getChildren, postCheckIn, postCheckOut };
