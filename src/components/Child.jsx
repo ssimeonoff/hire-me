@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { postCheckIn, postCheckOut } from "../api/apis";
+import { postCheck } from "../api/apis";
 
 import { useState } from "react";
 
@@ -11,19 +11,23 @@ const Child = ({id, name, checkedIn, checkins}) => {
   const [error, setError] = useState(null);
 
   const checkInChild = async () => {
+    setError(null);
     try {
-      const response = await postCheckIn(id);
+      const response = await postCheck(id, "checkins");
       setChecked(true);
       setCheckedInTime(new Date(response.checkinTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
     } catch (error) {
+      setError(error.message);
     }
   };
 
   const checkOutChild = async () => {
+    setError(null);
     try {
-      postCheckOut(id);
+      await postCheck(id, "checkout");
       setChecked(false);
     } catch (error) {
+      setError(error.message);
     }
   };
 
@@ -39,8 +43,8 @@ const Child = ({id, name, checkedIn, checkins}) => {
         <div>{setStatus()}</div>
         <ButtonsContainer>
           {checked ? 
-          <Button type="button" onClick={() => {checkOutChild(); setError(null); }}>CHECK OUT</Button>
-          : <Button type="button" onClick={() => {checkInChild(); setError(null); }}>CHECK IN</Button>
+          <Button type="button" onClick={() => checkOutChild()}>CHECK OUT</Button>
+          : <Button type="button" onClick={() => checkInChild()}>CHECK IN</Button>
           }
         </ButtonsContainer>
         <div>{error && error}</div>

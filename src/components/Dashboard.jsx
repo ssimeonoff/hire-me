@@ -20,23 +20,19 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchChildren = async () => {
-
       try {
         const response = await getChildren(groupId, institutionId);
         setData(response.children);
       } catch (error) {
-        setError(error);
+        setError(error.message);
       }
     };
-
     fetchChildren();
   }, []);
 
   return (
     <div>
       <div>DASHBOARD</div>
-      <div>Institution: {institutionId}</div>
-      <div>Group: {groupId}</div>
       <ContainerPagination>
         <Pagination type="button" disabled={isPreviousDisabled} onClick={() => !isPreviousDisabled && setPage(prevState => prevState - 1)}>PREV</Pagination>
         <PageLabel>{pageLabel}</PageLabel>
@@ -44,12 +40,14 @@ const Dashboard = () => {
       </ContainerPagination>
       <ContainerChildren>
         {data && data.slice(PAGE_SIZE * page, PAGE_SIZE * (page + 1)).map((child) => {
-          return <Child 
-                    key= {child.childId} 
-                    id={child.childId} 
-                    name={child.name.fullName} 
-                    checkedIn={child.checkedIn} 
-                    checkins={child.checkins}/>;
+          return (
+            <Child 
+              key= {child.childId} 
+              id={child.childId} 
+              name={child.name.fullName} 
+              checkedIn={child.checkedIn} 
+              checkins={child.checkins}/>
+            );
         })}
         {error && "Data could not be fetched."}
       </ContainerChildren>
