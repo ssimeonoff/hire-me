@@ -55,7 +55,7 @@ const ChildUI = ({
 }) => {
   const [selectedTime, setSelectedTime] = useState("");
 
-  const setStatus = () => {
+  const status = () => {
     if (checked) return `checked in at ${convertDateString(checkedInTime)}`;
     if (checkedOutTime)
       return `checked out at ${convertDateString(checkedOutTime)}`;
@@ -70,13 +70,12 @@ const ChildUI = ({
   return (
     <Container $checked={checked}>
       <div>{name}</div>
-      <div>{setStatus()}</div>
+      <div>{status()}</div>
       <form onSubmit={handleFormSubmit}>
         {checked ? (
           `pickup at ${convertDateString(pickup)}`
         ) : (
           <TimeSelector
-            required
             selectedTime={selectedTime}
             setSelectedTime={setSelectedTime}
           />
